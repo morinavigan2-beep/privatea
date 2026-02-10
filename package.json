@@ -2,7 +2,9 @@
   "name": "my-v0-project",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.11.0",
   "scripts": {
+    "preinstall": "npm_config_shamefully_hoist=true node -e \"const fs = require('fs'); try { const stat = fs.statSync('node_modules'); if (!stat.isDirectory()) { fs.unlinkSync('node_modules'); console.log('[v0] Removed node_modules file'); } } catch (e) { }\"",
     "build": "next build",
     "dev": "next dev",
     "lint": "eslint .",
